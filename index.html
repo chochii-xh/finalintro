@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intro</title>
+  <style>
+
+    @font-face {
+    font-family: 'TAEBAEKmilkyway';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/TAEBAEKmilkyway.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+    body {
+      font-family: 'TAEBAEKmilkyway';
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(255,255,255,1) 100%);
+      color: white;
+    }
+
+    #introTitle, #introText, #goButton {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      font-size: 2rem;
+      line-height: 1.8;
+    }
+
+    #introText {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #goButton {
+      display: none;
+      margin-top: 40px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: rgba(63,94,251,0);
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #goButton:hover {
+      background-color: rgba(255,255,255,0.5);
+    }
+  </style>
+</head>
+<body>
+  <div id="introTitle">Drawing to Music </div>
+  <div id="introText"></div>
+  <button id="goButton" onclick="redirectToMainSite()">GO</button>
+
+  <script>
+    const introTitle = document.getElementById('introTitle');
+    const introText = document.getElementById('introText');
+    const goButton = document.getElementById('goButton');
+
+    setTimeout(() => {
+      introTitle.style.opacity = '1';
+    }, 1000);
+
+    document.addEventListener('click', () => {
+      introTitle.style.opacity = '0';
+      setTimeout(() => {
+        introText.innerHTML = '당신을 표현하는 그림을 한 장 그려주세요.'+ '<br>' +'거기에 어울리는 노래를 추천해드릴게요.';
+        introText.style.opacity = '1';
+        goButton.style.display = 'block';
+        setTimeout(() => {
+          goButton.style.opacity = '1';
+        }, 500);
+      }, 1000);
+    });
+
+    function redirectToMainSite() {
+      window.location.href = 'https://chochii-xh.github.io/final/';
+    }
+  </script>
+</body>
+</html>
